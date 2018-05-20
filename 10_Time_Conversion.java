@@ -13,20 +13,21 @@ public class Solution {
         /*
          * Write your code here.
          */
-        int hh = Integer.parseInt(s.substring(0, 2));
         String ap = s.substring(8, 10);
-        String hhs;
+        int hh = Integer.parseInt(s.substring(0, 2));
+        String hhs = "";
         if(ap.equals("PM")) {
             hh += 12;
             hhs = Integer.toString(hh);
             if(hh == 24) {
                 hhs = "00";
             }
-        } else {
-            if(hh < 10) {
-                hhs = "0" + Integer.toString(hh);    
-            } else {
-                hhs = Integer.toString(hh);
+        } else if(ap.equals("AM")) {
+            hhs = Integer.toString(hh);
+            if(hh == 12) {
+                hhs = "00";
+            } else if(hh < 10) {
+                hhs = "0" + hhs;
             }
         }
         return hhs + s.substring(2, 8);
