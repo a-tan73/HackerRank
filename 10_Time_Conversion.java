@@ -16,17 +16,15 @@ public class Solution {
         String ap = s.substring(8, 10);
         int hh = Integer.parseInt(s.substring(0, 2));
         String hhs = "";
-        if(ap.equals("PM")) {
-            hh += 12;
+        if (ap.equals("PM")) {
+            if (hh != 12)
+                hh += 12;
             hhs = Integer.toString(hh);
-            if(hh == 24) {
-                hhs = "00";
-            }
-        } else if(ap.equals("AM")) {
+        } else if (ap.equals("AM")) {
             hhs = Integer.toString(hh);
-            if(hh == 12) {
+            if (hh == 12) {
                 hhs = "00";
-            } else if(hh < 10) {
+            } else if (hh < 10) {
                 hhs = "0" + hhs;
             }
         }
